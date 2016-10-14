@@ -57,9 +57,9 @@ var Records = React.createClass({
     });
 
     return(
-      <div className="records">
-        <h2 className="title"> Records </h2>
-        <div className="ui statistics">
+      <div className="ui container">
+        <h2 className="ui centered header" style={{marginBottom: 20}}> Records </h2>
+        <div className="ui three statistics" style={{marginBottom: 20}}>
           <AmountBox color="green" amount={this.credits()} text="Credit" />
           <AmountBox color="red" amount={this.debits()} text="Debit" />
           <AmountBox color="blue" amount={this.balance()} text="Balance" />

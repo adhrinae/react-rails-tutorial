@@ -37,7 +37,7 @@ var RecordForm = React.createClass({
    render: function () {
        return (
          <form className='ui form' onSubmit={this.handleSubmit} >
-            <div className='fields'>
+            <div className='four fields'>
                 <div className='field'>
                     <input
                         type="text"
