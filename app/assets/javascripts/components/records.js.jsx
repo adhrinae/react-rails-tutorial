@@ -18,6 +18,12 @@ var Records = React.createClass({
     this.replaceState({ records: records });
   },
 
+  updateRecord: function (record, data) {
+    var index = this.state.records.indexOf(record);
+    var records = React.addons.update(this.state.records, { $splice: [[index, 1, data]] })
+    this.replaceState({ records: records });
+  },
+
   credits: function () {
     var credits = this.state.records.filter(function (val) {
       return val.amount >= 0;
@@ -47,7 +53,7 @@ var Records = React.createClass({
     var rows = [];
 
     this.state.records.forEach(function (record) {
-      rows.push(<Record key={record.id} record={record} handleDeleteRecord={that.deleteRecord} />)
+      rows.push(<Record key={record.id} record={record} handleDeleteRecord={that.deleteRecord} handleEditRecord={that.updateRecord} />)
     });
 
     return(
