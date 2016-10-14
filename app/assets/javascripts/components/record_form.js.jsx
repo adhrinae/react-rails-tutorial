@@ -6,7 +6,7 @@ var RecordForm = React.createClass({
            amount: ''
        };
    },
-   
+
    handleChange: function (e) {
        var name = e.target.name;
        var result = {};
@@ -14,9 +14,8 @@ var RecordForm = React.createClass({
 
        this.setState(result);
    },
-   
+
    handleSubmit: function (e) {
-       var that = this;
        e.preventDefault();
        $.ajax({
            method: 'POST',
@@ -30,17 +29,17 @@ var RecordForm = React.createClass({
            }
        });
    },
-   
+
    valid: function () {
      return this.state.title && this.state.date && this.state.amount;
    },
-   
+
    render: function () {
        return (
          <form className='ui form' onSubmit={this.handleSubmit} >
             <div className='fields'>
                 <div className='field'>
-                    <input 
+                    <input
                         type="text"
                         placeholder="Date"
                         name="date"
@@ -48,7 +47,7 @@ var RecordForm = React.createClass({
                         onChange={this.handleChange} />
                 </div>
                 <div className='field'>
-                    <input 
+                    <input
                         type="text"
                         placeholder="Title"
                         name="title"
@@ -56,8 +55,8 @@ var RecordForm = React.createClass({
                         onChange={this.handleChange} />
                 </div>
                 <div className='field'>
-                    <input 
-                        type="text"
+                    <input
+                        type="number"
                         placeholder="Amount"
                         name="amount"
                         value={this.state.amount}
